@@ -1,0 +1,302 @@
+[
+  {
+    "slug": "llm",
+    "title": "LLM",
+    "full_title": "Large Language Model",
+    "what": "A text prediction machine trained on most of the internet.",
+    "analogy": "A student who read every book in every library but has never left the building. Knows everything about everything. Has experienced nothing.",
+    "at_work": "Your competitors are using LLMs to automate tasks that used to take three people. You need to know which tasks, so you know what to buy, what to build, and what to question.",
+    "one_thing": "LLMs don't \"know\" things. They predict what word comes next. When they're wrong, they're confidently wrong.",
+    "related": ["gpt", "claude", "chatgpt", "hallucination", "token"]
+  },
+  {
+    "slug": "gpt",
+    "title": "GPT",
+    "full_title": "Generative Pre-trained Transformer",
+    "what": "A specific type of LLM built by OpenAI.",
+    "analogy": "GPT is to LLM what iPhone is to smartphone. One specific product in a larger category. The category predates the product. Most people only know the product.",
+    "at_work": "When someone says \"let's use GPT for this,\" they usually mean \"let's use an LLM.\" Worth clarifying which model, from which company, at what cost, before committing.",
+    "one_thing": "GPT is a brand. LLM is the category. They are not interchangeable, even though everyone treats them that way.",
+    "related": ["llm", "chatgpt", "claude", "api"]
+  },
+  {
+    "slug": "claude",
+    "title": "Claude",
+    "full_title": "Claude (by Anthropic)",
+    "what": "An LLM built by Anthropic, a competitor to GPT.",
+    "analogy": "If GPT is Pepsi, Claude is Coke. Different recipe, similar product. Brand loyalty is strong. Taste tests are inconclusive.",
+    "at_work": "Different LLMs have different strengths. Claude tends to be better at following complex instructions. GPT tends to be better at code generation. Worth testing both before committing to a vendor.",
+    "one_thing": "There is no single best LLM. There are better and worse LLMs for specific tasks. Your use case decides.",
+    "related": ["llm", "gpt", "chatgpt", "api"]
+  },
+  {
+    "slug": "chatgpt",
+    "title": "ChatGPT",
+    "full_title": "ChatGPT",
+    "what": "A chat interface for GPT — the website where you talk to OpenAI's LLM.",
+    "analogy": "ChatGPT is to GPT what Gmail is to email. The interface, not the underlying thing. You can access GPT without ChatGPT via the API, and there are other chat wrappers you can use too.",
+    "at_work": "When your CEO says \"have you tried ChatGPT for this,\" they mean \"have you tried using an LLM for this.\" The tool and the category have blurred together in most people's minds. You don't have to correct them, but you should understand the difference.",
+    "one_thing": "ChatGPT is a product. GPT is a model. LLM is the category. Strategy lives at the category level, not the product level.",
+    "related": ["gpt", "llm", "api", "prompt"]
+  },
+  {
+    "slug": "prompt",
+    "title": "Prompt",
+    "full_title": "Prompt",
+    "what": "The text you send to an AI to get a response.",
+    "analogy": "The prompt is the order you give to a very literal-minded waiter who has never improvised in their life. Say exactly what you want. Assume nothing is obvious.",
+    "at_work": "The quality of AI output scales directly with the quality of the input. \"Write a summary\" gets a generic summary. \"Write a 3-sentence summary of this contract for a non-lawyer CFO who needs to sign by Friday\" gets something useful.",
+    "one_thing": "Bad prompt, bad output. This is not a limitation of the model. It is a design feature. The model does what you ask.",
+    "related": ["prompt-engineering", "context-window", "llm", "few-shot", "chain-of-thought"]
+  },
+  {
+    "slug": "context-window",
+    "title": "Context Window",
+    "full_title": "Context Window",
+    "what": "The maximum amount of text an LLM can read and use in a single session.",
+    "analogy": "Short-term memory. The model can only hold so much in mind at once. Outside the window, it doesn't exist. Ask it to remember something from three conversations ago: it can't.",
+    "at_work": "If you're asking an LLM to analyze a document, the document has to fit in the context window. Too long, and it can't read the whole thing. This matters when choosing tools for document processing or long research tasks.",
+    "one_thing": "Larger context window means more expensive per call. Longer is not always better if you only need to process small chunks.",
+    "related": ["token", "llm", "prompt", "rag"]
+  },
+  {
+    "slug": "token",
+    "title": "Token",
+    "full_title": "Token",
+    "what": "The unit of text that LLMs process, roughly three-quarters of a word.",
+    "analogy": "Think of tokens as puzzle pieces. Words get broken into pieces. \"Running\" might be one piece. \"Unbelievable\" might be three. The model counts pieces, not words.",
+    "at_work": "LLM pricing is quoted in tokens. \"Per 1,000 tokens\" is roughly \"per 750 words.\" When budgeting AI costs, token counts are what you're actually paying for.",
+    "one_thing": "Short prompts plus short outputs equals cheap. Long documents plus long responses equals expensive. Token counts tell you why.",
+    "related": ["context-window", "inference", "llm", "api"]
+  },
+  {
+    "slug": "hallucination",
+    "title": "Hallucination",
+    "full_title": "Hallucination",
+    "what": "When an AI confidently states something that is false.",
+    "analogy": "A very confident intern who would rather invent an answer than say \"I don't know.\" Completely certain. Completely wrong. No visible shame.",
+    "at_work": "Any AI-generated output that contains facts, names, dates, statistics, or citations needs human verification. Hallucinations happen at every quality level. Not an edge case. A design property.",
+    "one_thing": "The model doesn't know it's wrong. It predicts text. Wrong predictions are made with the same confidence as correct ones.",
+    "related": ["llm", "rag", "prompt-engineering"]
+  },
+  {
+    "slug": "fine-tuning",
+    "title": "Fine-tuning",
+    "full_title": "Fine-tuning",
+    "what": "Training an existing LLM on your specific data to make it behave the way you want.",
+    "analogy": "Hiring a generic contractor and then spending six months teaching them exactly how your company does things. After training: cheaper, faster, yours. During training: expensive and slow.",
+    "at_work": "Fine-tuning is for organizations with enough data and budget. Most companies don't need it. Prompt engineering and few-shot examples get you 80% of the way there for a fraction of the cost.",
+    "one_thing": "Fine-tuning does not make a model smarter. It makes a model more specialized. Specialization and intelligence are different things.",
+    "related": ["llm", "training", "rag", "prompt-engineering", "few-shot"]
+  },
+  {
+    "slug": "rag",
+    "title": "RAG",
+    "full_title": "Retrieval-Augmented Generation",
+    "what": "A method where the AI searches your documents before answering, instead of relying only on what it was trained on.",
+    "analogy": "Open-book exam versus closed-book exam. The model was trained on old data. RAG gives it access to your current documents during the exam. \"Before I answer, let me look that up.\"",
+    "at_work": "RAG is how you build an AI that knows your internal data. Company policies, product specs, legal documents, CRM notes. Without RAG, the model only knows what it learned in training, which ended months or years ago.",
+    "one_thing": "RAG equals retrieval plus generation. The model retrieves relevant pieces of your data, then generates an answer using those pieces. Two steps, not one.",
+    "related": ["embedding", "llm", "fine-tuning", "hallucination", "context-window"]
+  },
+  {
+    "slug": "agent",
+    "title": "Agent",
+    "full_title": "AI Agent",
+    "what": "An AI that takes actions, not just answers questions.",
+    "analogy": "The difference between asking a travel agent \"what flights are available\" versus handing them your credit card and saying \"book something for Tuesday.\" An agent books the flight.",
+    "at_work": "Agents are why AI is moving from \"tool that answers\" to \"thing that does work.\" An agent can search the web, read your email, write a file, call an API. The shift from assistant to colleague is happening now.",
+    "one_thing": "Agents fail when the task is ambiguous and they guess wrong. The more specific the task, the more reliably they complete it.",
+    "related": ["tool-use", "ai-orchestration", "llm", "mcp"]
+  },
+  {
+    "slug": "tool-use",
+    "title": "Tool Use",
+    "full_title": "Tool Use",
+    "what": "The ability of an LLM to call external functions or services: search, calculators, databases, APIs.",
+    "analogy": "A very smart person who can only talk, but you've given them a phone. They can call anyone. The phone doesn't make them smarter. It makes them more useful.",
+    "at_work": "LLMs are bad at math, bad at real-time information, bad at accessing your internal systems, unless given tools. Tools fix the gaps. Knowing what tools are available to your AI setup matters when evaluating vendors.",
+    "one_thing": "Tool use is what separates a chatbot from an agent. Without tools, it talks. With tools, it acts.",
+    "related": ["agent", "api", "mcp", "llm"]
+  },
+  {
+    "slug": "embedding",
+    "title": "Embedding",
+    "full_title": "Embedding",
+    "what": "A way of representing text as a list of numbers that captures its meaning.",
+    "analogy": "Imagine converting every word, sentence, or document into GPS coordinates. Similar meanings are geographically close. Completely different topics are far apart. You can now search by nearness rather than exact word match.",
+    "at_work": "Embeddings make semantic search possible. \"Find documents similar to this one\" works not by matching keywords but by matching meaning. This is the engine behind RAG, recommendation systems, and smart document search.",
+    "one_thing": "\"Automobile\" and \"car\" look completely different as text. Their embeddings are nearly identical. That's the point.",
+    "related": ["rag", "llm"]
+  },
+  {
+    "slug": "temperature",
+    "title": "Temperature",
+    "full_title": "Temperature",
+    "what": "A setting that controls how random or predictable an LLM's output is.",
+    "analogy": "Temperature zero is the AI at maximum caution: same input, same output, every time. Temperature one is the AI after two drinks. More creative, more likely to say something unexpected, also more likely to say something wrong.",
+    "at_work": "For factual tasks like data extraction, classification, summaries: use low temperature. For creative tasks like copywriting, brainstorming, generating variations: use higher temperature. Most platforms expose this setting. Most users ignore it.",
+    "one_thing": "There is no correct temperature. There is a correct temperature for your specific task. Learn to adjust it.",
+    "related": ["prompt-engineering", "llm", "inference"]
+  },
+  {
+    "slug": "inference",
+    "title": "Inference",
+    "full_title": "Inference",
+    "what": "The act of running an LLM to generate a response, the moment it produces output.",
+    "analogy": "Training is writing the cookbook. Inference is cooking dinner. One happens once, very expensively. The other happens millions of times, cheaper each time.",
+    "at_work": "When you pay for API calls, you're paying for inference. Faster inference means cheaper products. Slower inference means users abandoning the chat. This is why AI companies obsess over inference speed.",
+    "one_thing": "Inference is separate from training. You don't retrain the model every time you use it. You just run it.",
+    "related": ["training", "token", "api", "llm"]
+  },
+  {
+    "slug": "training",
+    "title": "Training",
+    "full_title": "Training",
+    "what": "The process of building an LLM — feeding it massive amounts of data so it learns patterns.",
+    "analogy": "Training is the twelve-year education. Inference is the daily job. You spend years in school once. You use what you learned for the rest of your career.",
+    "at_work": "Training an LLM costs millions of dollars and months of compute. Your company is not training models. Your company is using models that were already trained. This distinction matters enormously when evaluating vendor claims.",
+    "one_thing": "\"Training\" and \"using\" an AI are completely different activities. Almost no companies do the former. Almost every company does the latter.",
+    "related": ["fine-tuning", "inference", "llm", "rlhf"]
+  },
+  {
+    "slug": "api",
+    "title": "API",
+    "full_title": "Application Programming Interface",
+    "what": "A way to access a service or model programmatically, without a user interface.",
+    "analogy": "API is the kitchen door, not the restaurant entrance. You don't sit at a table and order. You connect directly, send instructions, get results back. Faster. Uglier. Requires knowing where the kitchen is.",
+    "at_work": "When your tech team says \"we'll integrate via API,\" they mean they'll build a direct connection to the AI service instead of using its website. This enables automation, custom workflows, and cost control at scale.",
+    "one_thing": "API access is what separates \"using an AI tool\" from \"building with AI.\" Tools are for people. APIs are for software.",
+    "related": ["saas-vs-api", "tool-use", "inference", "llm"]
+  },
+  {
+    "slug": "mcp",
+    "title": "MCP",
+    "full_title": "Model Context Protocol",
+    "what": "A standard that lets AI models connect to external tools and data sources in a consistent way.",
+    "analogy": "MCP is the universal power adapter for AI. Before it, every AI tool needed its own special cable. Now there's one plug that works everywhere — assuming everyone adopts it. That part is still pending.",
+    "at_work": "MCP matters when your company is building AI integrations. Instead of custom code to connect an LLM to your CRM, your database, your calendar, you build one MCP integration and reuse it everywhere.",
+    "one_thing": "MCP is an emerging standard, not a mature one. Worth knowing the name for when it appears in your tech team's roadmap discussions.",
+    "related": ["tool-use", "api", "agent", "llm"]
+  },
+  {
+    "slug": "multimodal",
+    "title": "Multimodal",
+    "full_title": "Multimodal AI",
+    "what": "An AI that can process more than one type of input: text, images, audio, video.",
+    "analogy": "Most LLMs were born blind. Multimodal models were given eyes and sometimes ears. They can see the chart you're attaching. They can describe the photo. They can transcribe the meeting.",
+    "at_work": "Multimodal capability matters when your data isn't text. Analyzing product images, extracting data from scanned invoices, summarizing recorded calls — all require multimodal models.",
+    "one_thing": "A multimodal model isn't automatically better at text. It's better at tasks involving non-text inputs. Different capability, same pricing model.",
+    "related": ["image-generation", "voice-to-text", "llm"]
+  },
+  {
+    "slug": "voice-to-text",
+    "title": "Voice-to-Text",
+    "full_title": "Voice-to-Text (Transcription)",
+    "what": "AI that converts spoken audio into written text, also called transcription or speech recognition.",
+    "analogy": "A court reporter who never gets tired, never misses a word, costs a penny per minute, and cannot tell you what anything means.",
+    "at_work": "Meeting transcription, customer call summarization, audio accessibility. If your team converts spoken content to written content manually, voice-to-text is worth investigating now. Whisper by OpenAI is the current standard: free and open-source.",
+    "one_thing": "Accuracy is high for clear audio in standard accents. Accuracy degrades significantly with background noise, strong accents, or domain-specific jargon. Test before deploying in critical workflows.",
+    "related": ["multimodal", "llm"]
+  },
+  {
+    "slug": "image-generation",
+    "title": "Image Generation",
+    "full_title": "Image Generation",
+    "what": "AI that creates images from text descriptions.",
+    "analogy": "You describe what you want, a very literal artist draws it instantly, and you argue about what \"in the style of\" means. Unlimited revisions. No ego, mostly.",
+    "at_work": "Marketing assets, concept visualization, presentation images, rapid prototyping. The question is not whether to use image generation. It's which tasks are worth automating and which require a human who can take a brief and push back.",
+    "one_thing": "Image generation doesn't replace art directors. It replaces stock photo searches and initial concept drafts. The better your prompt, the better the output.",
+    "related": ["multimodal", "diffusion-model", "prompt"]
+  },
+  {
+    "slug": "diffusion-model",
+    "title": "Diffusion Model",
+    "full_title": "Diffusion Model",
+    "what": "The type of AI architecture behind most image generators, including Midjourney, DALL-E, and Stable Diffusion.",
+    "analogy": "Diffusion models start with pure noise — a TV with no signal — and slowly remove the noise until an image appears. Like a photograph developing in a darkroom, but backwards and much faster.",
+    "at_work": "You don't need to understand diffusion to use image generation tools. You need to know the name when evaluating which image AI to use, because different diffusion models have different aesthetics, licensing terms, and costs.",
+    "one_thing": "Stable Diffusion is open-source: run it locally, no cost per image. DALL-E and Midjourney are commercial: pay per image. Same concept, different business models.",
+    "related": ["image-generation", "multimodal", "training"]
+  },
+  {
+    "slug": "rlhf",
+    "title": "RLHF",
+    "full_title": "Reinforcement Learning from Human Feedback",
+    "what": "A training method where humans rate the model's outputs so it learns to produce more preferred responses.",
+    "analogy": "RLHF is dog training for AI. Good response gets a treat. Bad response gets nothing. Run this a billion times. The dog learns to sit on command.",
+    "at_work": "RLHF is why modern AI assistants are helpful, harmless, and reasonably honest rather than technically accurate but socially destructive. The values baked into the model's behavior came from RLHF. Understanding this explains why models sometimes refuse requests that seem harmless.",
+    "one_thing": "The preferences in RLHF reflect the preferences of the humans who did the rating. Different companies use different raters. This is why different models have different personalities.",
+    "related": ["training", "fine-tuning", "llm"]
+  },
+  {
+    "slug": "few-shot",
+    "title": "Few-Shot Learning",
+    "full_title": "Few-Shot Learning",
+    "what": "Giving an AI two to five examples of what you want before asking it to do the task.",
+    "analogy": "\"Here are three examples of emails in our tone. Now write one like these.\" You're not training the model. You're showing it what good looks like, right now, in the prompt.",
+    "at_work": "Faster and cheaper than fine-tuning for most tasks. Before paying for a custom model, try putting three examples of what you want directly in the prompt. This works well enough for the majority of real-world use cases.",
+    "one_thing": "Few-shot is in-context learning. You are not changing the model. You are temporarily steering it with examples. It works until you close the session.",
+    "related": ["fine-tuning", "prompt", "prompt-engineering", "zero-shot", "context-window"]
+  },
+  {
+    "slug": "zero-shot",
+    "title": "Zero-Shot",
+    "full_title": "Zero-Shot Prompting",
+    "what": "Asking an AI to do a task with no examples — just the instruction.",
+    "analogy": "Asking a temp worker to handle a task with no training, assuming they're competent enough to figure it out. Sometimes it works perfectly. Sometimes it does not.",
+    "at_work": "Most AI interactions are zero-shot. \"Summarize this.\" \"Translate this.\" No examples needed. Zero-shot works when the task is common and well-defined. It fails when the task requires your specific context or an unusual format.",
+    "one_thing": "If zero-shot keeps producing bad output, add examples before concluding the model can't do the task. That's the next step. Not a new model.",
+    "related": ["few-shot", "prompt", "prompt-engineering", "llm"]
+  },
+  {
+    "slug": "chain-of-thought",
+    "title": "Chain-of-Thought",
+    "full_title": "Chain-of-Thought Prompting",
+    "what": "A technique where the AI is prompted to reason step-by-step before giving a final answer.",
+    "analogy": "Instead of asking \"what's the answer,\" you ask \"show your work.\" The model that shows its work makes fewer mistakes, because laying out intermediate steps catches errors before the conclusion.",
+    "at_work": "For complex reasoning tasks: legal analysis, financial modeling, multi-step decisions. Add \"think step by step\" or \"explain your reasoning\" to the prompt. You get better answers and visible reasoning you can actually check.",
+    "one_thing": "Chain-of-thought doesn't make the model smarter. It makes it more careful. The capacity was already there. You're asking it to use more of it.",
+    "related": ["prompt-engineering", "llm", "prompt"]
+  },
+  {
+    "slug": "quantization",
+    "title": "Quantization",
+    "full_title": "Quantization",
+    "what": "A technique that makes AI models smaller and faster by reducing the precision of their internal numbers.",
+    "analogy": "Original: a 4K movie on Blu-ray — stunning, massive, requires a dedicated player. Quantized: a compressed streaming version — nearly identical to most viewers, runs on anything, a fraction of the size.",
+    "at_work": "Quantized models run on cheaper hardware or on-device (your laptop, your phone). If your tech team is evaluating local AI deployment — running models on-premise instead of cloud — quantization is part of that conversation.",
+    "one_thing": "Some quality is lost in quantization, usually imperceptibly. For most tasks, a quantized model is good enough and significantly cheaper to run.",
+    "related": ["inference", "training", "llm"]
+  },
+  {
+    "slug": "saas-vs-api",
+    "title": "SaaS vs API",
+    "full_title": "SaaS vs API",
+    "what": "Two ways to buy access to AI: as a finished product (SaaS) or as raw building material (API).",
+    "analogy": "SaaS is a furnished apartment. Everything works. You can't knock down walls. API is an empty floor in a building. You construct your own walls. You decide everything.",
+    "at_work": "ChatGPT, Notion AI, Grammarly — these are SaaS. You buy the subscription and use the interface someone else built. The OpenAI API, Anthropic API — these are raw access. Your team builds on top. Faster to deploy as SaaS. More flexible and often cheaper at scale via API.",
+    "one_thing": "The buy-versus-build question for AI usually comes down to this distinction. SaaS if you need speed. API if you need customization or volume.",
+    "related": ["api", "llm", "inference"]
+  },
+  {
+    "slug": "ai-orchestration",
+    "title": "AI Orchestration",
+    "full_title": "AI Orchestration",
+    "what": "The system that coordinates multiple AI models, tools, and data sources to complete a complex task.",
+    "analogy": "An orchestra has a conductor who tells each section when to play and how loud. AI orchestration is the conductor. The instruments are the individual models and tools. Without orchestration, it's noise.",
+    "at_work": "When your AI system needs to search, analyze, write, check, and send — in that order, with handoffs between systems — you need orchestration. Platforms like LangChain or custom code handle this. Knowing the term helps you evaluate vendors accurately.",
+    "one_thing": "Orchestration is infrastructure, not intelligence. It doesn't make the models smarter. It makes them work together.",
+    "related": ["agent", "tool-use", "rag", "llm"]
+  },
+  {
+    "slug": "prompt-engineering",
+    "title": "Prompt Engineering",
+    "full_title": "Prompt Engineering",
+    "what": "The practice of writing better prompts to get better outputs from AI models.",
+    "analogy": "\"Prompt engineer\" sounds like a job title someone invented to justify a salary. It is and it isn't. Writing a good prompt is a skill. Writing a reproducible, production-grade prompt that works reliably across thousands of runs is a different, more technical skill.",
+    "at_work": "You can do basic prompt engineering right now: add context, add examples, ask for step-by-step reasoning, specify format. Advanced prompt engineering involves systematic testing and measuring outputs. The first type is immediately useful. The second is a full-time job.",
+    "one_thing": "Prompt engineering is a temporary skill. As models improve, they require less precise prompting. The skill matters now. Its ceiling will lower.",
+    "related": ["prompt", "few-shot", "chain-of-thought", "temperature"]
+  }
+]

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI for Babies — AI explained for people who have actual jobs</title>
+  <meta name="description" content="A plain-English glossary of AI terms. No fluff, no courses, no 40-module certifications. Just what each term means and why it matters at your job.">
+  <meta property="og:title" content="AI for Babies">
+  <meta property="og:description" content="AI explained for people who have actual jobs. 30 concepts. Plain English. One absurd analogy each.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aiforbabies.github.io">
+  <link rel="canonical" href="https://aiforbabies.github.io">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #FAFAF8;
+      --surface: #FFFFFF;
+      --text: #111111;
+      --muted: #6B7280;
+      --accent: #2563EB;
+      --accent-bg: #EFF6FF;
+      --border: #E5E7EB;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .nav-logo {
+      font-weight: 800;
+      font-size: 15px;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.3px;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-cta {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 6px 14px;
+      border: 1.5px solid var(--accent);
+      border-radius: 6px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-cta:hover { background: var(--accent); color: #fff; }
+
+    /* HERO */
+    .hero {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 72px 24px 48px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-bg);
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(32px, 6vw, 56px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 16px;
+    }
+    .hero p {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 32px;
+      line-height: 1.5;
+    }
+    .hero-sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    /* NEWSLETTER FORM */
+    .newsletter-form {
+      display: flex;
+      gap: 8px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .newsletter-form input {
+      flex: 1;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-family: var(--font);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .newsletter-form input:focus { border-color: var(--accent); }
+    .newsletter-form input::placeholder { color: var(--muted); }
+    .newsletter-form button {
+      padding: 10px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: var(--font);
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: opacity 0.15s;
+    }
+    .newsletter-form button:hover { opacity: 0.88; }
+
+    /* SEARCH */
+    .search-wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px 32px;
+    }
+    .search-input {
+      width: 100%;
+      padding: 12px 16px 12px 44px;
+      font-size: 15px;
+      font-family: var(--font);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.15s;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: 14px center;
+    }
+    .search-input:focus { border-color: var(--accent); }
+    .search-input::placeholder { color: var(--muted); }
+
+    /* GRID */
+    .grid-wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+    .grid-meta {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .grid-meta span { font-weight: 600; color: var(--text); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 720px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 460px) { .grid { grid-template-columns: 1fr; } }
+
+    .card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      text-decoration: none;
+      display: block;
+      transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+    }
+    .card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(37,99,235,0.08);
+    }
+    .card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .card-full {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+    .card-what {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .card-no-results {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 48px 24px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .card-no-results strong { display: block; font-size: 16px; color: var(--text); margin-bottom: 6px; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    footer a { color: var(--muted); text-decoration: underline; }
+    footer a:hover { color: var(--text); }
+    footer p + p { margin-top: 6px; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">AI for <span>Babies</span></a>
+  <a href="https://aiforbabies.substack.com" target="_blank" rel="noopener" class="nav-cta">Get the newsletter</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">30 concepts · plain English</div>
+  <h1>AI explained for people<br>who have actual jobs.</h1>
+  <p>Not a course. Not a 40-module certification. A glossary. Each concept: what it is, one absurd analogy, and why it matters at work.</p>
+  <form class="newsletter-form" onsubmit="handleSubscribe(event)">
+    <input type="email" id="emailInput" placeholder="your@email.com" autocomplete="email" required>
+    <button type="submit">Subscribe</button>
+  </form>
+  <p class="hero-sub">Weekly. One concept. Free.</p>
+</section>
+
+<div class="search-wrap">
+  <input
+    type="text"
+    class="search-input"
+    id="searchInput"
+    placeholder="Search 30 concepts — try &quot;agent&quot;, &quot;token&quot;, &quot;hallucination&quot;..."
+    autocomplete="off"
+  >
+</div>
+
+<div class="grid-wrap">
+  <p class="grid-meta" id="gridMeta">Loading concepts...</p>
+  <div class="grid" id="conceptGrid"></div>
+</div>
+
+<footer>
+  <p>AI for Babies &mdash; not for babies.</p>
+  <p><a href="https://aiforbabies.substack.com" target="_blank" rel="noopener">Newsletter</a></p>
+</footer>
+
+<script>
+  const SITE_URL = 'https://aiforbabies.github.io';
+  let concepts = [];
+
+  async function loadConcepts() {
+    try {
+      const res = await fetch(SITE_URL + '/concepts-data.json');
+      concepts = await res.json();
+    } catch {
+      // fallback for local dev
+      try {
+        const res = await fetch('/concepts-data.json');
+        concepts = await res.json();
+      } catch {
+        document.getElementById('gridMeta').textContent = 'Could not load concepts.';
+        return;
+      }
+    }
+    renderGrid(concepts);
+  }
+
+  function renderGrid(list) {
+    const grid = document.getElementById('conceptGrid');
+    const meta = document.getElementById('gridMeta');
+    meta.innerHTML = '<span>' + list.length + '</span> concept' + (list.length !== 1 ? 's' : '');
+
+    if (list.length === 0) {
+      grid.innerHTML = '<div class="card-no-results"><strong>No concepts found.</strong>Try a different search term.</div>';
+      return;
+    }
+
+    grid.innerHTML = list.map(c => `
+      <a href="${SITE_URL}/concepts/${c.slug}/" class="card">
+        <div class="card-title">${c.title}</div>
+        ${c.full_title !== c.title ? '<div class="card-full">' + c.full_title + '</div>' : ''}
+        <div class="card-what">${c.what}</div>
+      </a>
+    `).join('');
+  }
+
+  function filterConcepts(query) {
+    if (!query.trim()) return renderGrid(concepts);
+    const q = query.toLowerCase();
+    const filtered = concepts.filter(c =>
+      c.title.toLowerCase().includes(q) ||
+      c.full_title.toLowerCase().includes(q) ||
+      c.what.toLowerCase().includes(q) ||
+      c.one_thing.toLowerCase().includes(q)
+    );
+    renderGrid(filtered);
+  }
+
+  document.getElementById('searchInput').addEventListener('input', e => {
+    filterConcepts(e.target.value);
+  });
+
+  function handleSubscribe(e) {
+    e.preventDefault();
+    const email = document.getElementById('emailInput').value;
+    window.open('https://aiforbabies.substack.com/subscribe?email=' + encodeURIComponent(email), '_blank');
+  }
+
+  loadConcepts();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SaaS vs API Explained Simply | AI for Babies</title>
+  <meta name="description" content="Two ways to buy access to AI: as a finished product (SaaS) or as raw building material (API). Plain English, no jargon. What it means at your job.">
+  <meta property="og:title" content="SaaS vs API: SaaS vs API Explained">
+  <meta property="og:description" content="Two ways to buy access to AI: as a finished product (SaaS) or as raw building material (API).">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aiforbabies.github.io/concepts/saas-vs-api/">
+  <link rel="canonical" href="https://aiforbabies.github.io/concepts/saas-vs-api/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #FAFAF8;
+      --surface: #FFFFFF;
+      --text: #111111;
+      --muted: #6B7280;
+      --accent: #2563EB;
+      --accent-bg: #EFF6FF;
+      --border: #E5E7EB;
+      --callout-bg: #F0F9FF;
+      --callout-border: #BAE6FD;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .nav-logo {
+      font-weight: 800;
+      font-size: 15px;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.3px;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-cta {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 6px 14px;
+      border: 1.5px solid var(--accent);
+      border-radius: 6px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-cta:hover { background: var(--accent); color: #fff; }
+
+    /* MAIN */
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* BREADCRUMB */
+    .breadcrumb {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb-sep { color: var(--border); }
+
+    /* HEADER */
+    .concept-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    h1 {
+      font-size: clamp(36px, 6vw, 52px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.05;
+      margin-bottom: 8px;
+    }
+    .concept-full {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+
+    /* SECTIONS */
+    .section {
+      margin-bottom: 32px;
+    }
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section p {
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--text);
+    }
+
+    /* ANALOGY callout */
+    .analogy-box {
+      background: var(--callout-bg);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+    }
+    .analogy-box p {
+      font-size: 15px;
+      line-height: 1.65;
+      color: #1E3A5F;
+    }
+
+    /* ONE THING */
+    .one-thing-box {
+      background: var(--text);
+      color: var(--bg);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 40px;
+    }
+    .one-thing-box .section-label { color: rgba(255,255,255,0.5); margin-bottom: 8px; }
+    .one-thing-box p { font-size: 16px; font-weight: 500; color: #FAFAF8; line-height: 1.55; }
+
+    /* DIVIDER */
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 40px 0;
+    }
+
+    /* RELATED */
+    .related-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 12px;
+    }
+    .related-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 48px;
+    }
+    .related-tag {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-bg);
+      padding: 5px 12px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .related-tag:hover { background: var(--accent); color: #fff; }
+
+    /* NEWSLETTER CTA */
+    .newsletter-cta {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 28px 24px;
+      text-align: center;
+    }
+    .newsletter-cta h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+    .newsletter-cta p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .newsletter-form {
+      display: flex;
+      gap: 8px;
+      max-width: 380px;
+      margin: 0 auto;
+    }
+    .newsletter-form input {
+      flex: 1;
+      padding: 9px 13px;
+      font-size: 14px;
+      font-family: var(--font);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg);
+      color: var(--text);
+      outline: none;
+    }
+    .newsletter-form input:focus { border-color: var(--accent); }
+    .newsletter-form input::placeholder { color: var(--muted); }
+    .newsletter-form button {
+      padding: 9px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: var(--font);
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .newsletter-form button:hover { opacity: 0.88; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 24px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    footer a { color: var(--muted); text-decoration: underline; }
+    footer a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="https://aiforbabies.github.io/" class="nav-logo">AI for <span>Babies</span></a>
+  <a href="https://aiforbabies.substack.com" target="_blank" rel="noopener" class="nav-cta">Get the newsletter</a>
+</nav>
+
+<main>
+
+  <div class="breadcrumb">
+    <a href="https://aiforbabies.github.io/">Glossary</a>
+    <span class="breadcrumb-sep">/</span>
+    <span>SaaS vs API</span>
+  </div>
+
+  <div class="concept-label">AI Concept</div>
+  <h1>SaaS vs API</h1>
+  <p class="concept-full">SaaS vs API</p>
+
+  <div class="section">
+    <div class="section-label">What is it</div>
+    <p>Two ways to buy access to AI: as a finished product (SaaS) or as raw building material (API).</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">The analogy</div>
+    <div class="analogy-box">
+      <p>SaaS is a furnished apartment. Everything works. You can't knock down walls. API is an empty floor in a building. You construct your own walls. You decide everything.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">At your job</div>
+    <p>ChatGPT, Notion AI, Grammarly — these are SaaS. You buy the subscription and use the interface someone else built. The OpenAI API, Anthropic API — these are raw access. Your team builds on top. Faster to deploy as SaaS. More flexible and often cheaper at scale via API.</p>
+  </div>
+
+  <div class="one-thing-box">
+    <div class="section-label">The one thing to remember</div>
+    <p>The buy-versus-build question for AI usually comes down to this distinction. SaaS if you need speed. API if you need customization or volume.</p>
+  </div>
+
+  <hr>
+
+  <div class="related-title">Related concepts</div>
+  <div class="related-tags">
+    <a href="https://aiforbabies.github.io/concepts/api/" class="related-tag">API</a>
+    <a href="https://aiforbabies.github.io/concepts/llm/" class="related-tag">LLM</a>
+    <a href="https://aiforbabies.github.io/concepts/inference/" class="related-tag">Inference</a>
+  </div>
+
+  <div class="newsletter-cta">
+    <h3>One concept a week. That's it.</h3>
+    <p>No courses. No certifications. Just the term your boss mentioned in the meeting, explained in plain English.</p>
+    <form class="newsletter-form" onsubmit="handleSubscribe(event)">
+      <input type="email" id="emailInput" placeholder="your@email.com" autocomplete="email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+
+</main>
+
+<footer>
+  <a href="https://aiforbabies.github.io/">Back to the glossary</a>
+</footer>
+
+<script>
+  function handleSubscribe(e) {
+    e.preventDefault();
+    const email = document.getElementById('emailInput').value;
+    window.open('https://aiforbabies.substack.com/subscribe?email=' + encodeURIComponent(email), '_blank');
+  }
+</script>
+
+</body>
+</html>
