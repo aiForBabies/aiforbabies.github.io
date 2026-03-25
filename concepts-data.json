@@ -298,5 +298,205 @@
     "at_work": "You can do basic prompt engineering right now: add context, add examples, ask for step-by-step reasoning, specify format. Advanced prompt engineering involves systematic testing and measuring outputs. The first type is immediately useful. The second is a full-time job.",
     "one_thing": "Prompt engineering is a temporary skill. As models improve, they require less precise prompting. The skill matters now. Its ceiling will lower.",
     "related": ["prompt", "few-shot", "chain-of-thought", "temperature"]
+  },
+  {
+    "slug": "knowledge-cutoff",
+    "title": "Knowledge Cutoff",
+    "full_title": "Knowledge Cutoff",
+    "what": "The date after which an AI model has no information about the world.",
+    "analogy": "A very well-read colleague who went into a coma in October 2023 and just woke up. Brilliant on everything before that date. Blank on everything after. Completely unaware there's a gap.",
+    "at_work": "If your team is using AI to research competitors, market trends, or recent regulations, you must verify the model's knowledge cutoff. Asking for \"current\" information from a model with a 2023 cutoff will get you 2023 information, delivered with full confidence.",
+    "one_thing": "The model doesn't know what it doesn't know. It will answer questions about recent events without flagging that its training predates them. Verification is not optional.",
+    "related": ["llm", "rag", "hallucination", "grounding"]
+  },
+  {
+    "slug": "system-prompt",
+    "title": "System Prompt",
+    "full_title": "System Prompt",
+    "what": "Hidden instructions given to an AI before any user conversation that shape its behavior, tone, and limits.",
+    "analogy": "The employee handbook given to a new hire on day one. The customer never sees it. It explains what to say, what not to say, how to behave, and what happens if they break the rules. The employee follows it automatically.",
+    "at_work": "When a company builds a customer-facing AI assistant, the system prompt is where they define its personality, restrictions, and focus area. It explains why the bank's chatbot won't discuss competitors, why the support bot always sounds professional, and why it keeps trying to resolve your issue instead of chatting.",
+    "one_thing": "System prompts can be extracted through clever questioning in many cases. This is a known security concern. Assume your system prompt is not truly secret.",
+    "related": ["prompt", "prompt-engineering", "guardrails", "llm"]
+  },
+  {
+    "slug": "guardrails",
+    "title": "Guardrails",
+    "full_title": "AI Guardrails",
+    "what": "Rules and filters applied to AI systems to prevent harmful, inappropriate, or off-topic outputs.",
+    "analogy": "The bumpers at a bowling alley for children. The ball still goes forward. It cannot go into the gutter. Whether that's helpful or annoying depends entirely on what you're trying to do.",
+    "at_work": "Guardrails are why enterprise AI tools refuse to generate certain content, won't discuss competitors, or redirect sensitive questions to a human. When evaluating AI vendors, ask what guardrails they apply by default and which ones you can configure.",
+    "one_thing": "Guardrails protect the company, not just the user. Most restrictions exist because the AI said something embarrassing once and it became a news story.",
+    "related": ["system-prompt", "ai-safety", "llm", "rlhf"]
+  },
+  {
+    "slug": "vector-database",
+    "title": "Vector Database",
+    "full_title": "Vector Database",
+    "what": "A database built specifically to store and search embeddings, which are the numerical representations of text meaning.",
+    "analogy": "A library where books are organized not by title or author but by how similar their contents are. Crime novels next to crime novels. Philosophy next to philosophy. You search by meaning, not by keywords.",
+    "at_work": "If your team is building a RAG system, chat over documents, or semantic search, a vector database is likely involved. Common ones: Pinecone, Weaviate, Chroma. You won't build it, but you'll see it in vendor proposals.",
+    "one_thing": "A vector database is not smarter than a regular database. It's specialized. For meaning-based search, it's faster. For everything else, a regular database is fine.",
+    "related": ["embedding", "rag", "semantic-search", "llm"]
+  },
+  {
+    "slug": "semantic-search",
+    "title": "Semantic Search",
+    "full_title": "Semantic Search",
+    "what": "Search that finds results based on meaning rather than matching exact words.",
+    "analogy": "You search for \"car\" and find results about \"automobile,\" \"vehicle,\" and \"road trip.\" Classic search would have returned nothing unless those exact words appeared. Semantic search understood what you meant.",
+    "at_work": "Enterprise document search, HR policy lookup, customer support knowledge bases. If your team spends time not finding internal information because they used the wrong keyword, semantic search is the fix.",
+    "one_thing": "Semantic search does not require AI to build a query. It requires AI to process the document library before any search happens. The upfront work is the expensive part.",
+    "related": ["embedding", "vector-database", "rag"]
+  },
+  {
+    "slug": "autonomous-agent",
+    "title": "Autonomous Agent",
+    "full_title": "Autonomous AI Agent",
+    "what": "An AI agent that runs a multi-step task from start to finish without human approval at each step.",
+    "analogy": "You ask a contractor to renovate your kitchen, hand them the keys, and leave for two weeks. Autonomous agent. If you have to approve every tile placement, that's a supervised agent. Two very different levels of trust.",
+    "at_work": "Autonomous agents can run overnight, process thousands of records, draft hundreds of emails, or complete research without anyone watching. The risk scales with autonomy. Before deploying one, define exactly where it can and cannot make decisions without asking.",
+    "one_thing": "Autonomous does not mean unsupervised forever. It means unsupervised within a defined scope. The scope definition is the hardest and most important part.",
+    "related": ["agent", "tool-use", "ai-orchestration", "llm"]
+  },
+  {
+    "slug": "open-source-ai",
+    "title": "Open-Source AI",
+    "full_title": "Open-Source AI",
+    "what": "AI models whose weights are publicly released, allowing anyone to download, run, and modify them.",
+    "analogy": "OpenAI and Anthropic are the Coca-Cola formula: proprietary, locked up, you pay to use it. Open-source AI is the generic cola: anyone can make it, modify it, sell it, or give it away. Different business model, not necessarily worse product.",
+    "at_work": "Open-source models can run on your own servers, eliminating data privacy concerns from cloud APIs. Meta's Llama, Mistral, and Falcon are the major names. Relevant when your legal team asks whether your AI vendor can see your data.",
+    "one_thing": "Open-source does not mean free to run. Hosting a large model requires significant compute. The license is free. The electricity is not.",
+    "related": ["llm", "on-premise-ai", "inference", "fine-tuning"]
+  },
+  {
+    "slug": "on-premise-ai",
+    "title": "On-Premise AI",
+    "full_title": "On-Premise AI",
+    "what": "Running AI models on your own servers instead of sending data to an external provider.",
+    "analogy": "On-premise is having the bank safe inside your own building. Cloud AI is using a bank downtown. Downtown is more convenient. Your building is more private. The choice depends entirely on what you're storing.",
+    "at_work": "Healthcare, legal, finance, and any sector handling regulated data. If your data cannot leave your network, on-premise AI is not optional, it's the only option. The tradeoff: slower deployment, more infrastructure cost, often lower model quality.",
+    "one_thing": "On-premise AI has gotten significantly cheaper since 2023. Quantized models run on standard servers. The gap between cloud quality and local quality is narrowing.",
+    "related": ["open-source-ai", "quantization", "inference", "llm"]
+  },
+  {
+    "slug": "grounding",
+    "title": "Grounding",
+    "full_title": "Grounding",
+    "what": "The process of anchoring an AI's outputs to verified, specific sources instead of letting it reason from training data alone.",
+    "analogy": "The difference between asking someone to speculate about a topic and asking them to read this specific report and then answer. Grounded answers come from the document. Ungrounded answers come from wherever the model's training took it.",
+    "at_work": "Grounding is what separates a useful research tool from a hallucination machine. When an AI can cite the document, the paragraph, and the page number, it's grounded. When it says \"according to industry trends,\" it is not.",
+    "one_thing": "Grounding is the primary defense against hallucination. If the answer must come from a specific document, the model cannot invent one.",
+    "related": ["rag", "hallucination", "knowledge-cutoff", "prompt-engineering"]
+  },
+  {
+    "slug": "structured-output",
+    "title": "Structured Output",
+    "full_title": "Structured Output",
+    "what": "AI output formatted as data (JSON, tables, specific fields) rather than free-form text.",
+    "analogy": "Asking someone to fill in a form versus asking them to write a letter. The letter might contain the same information. The form is machine-readable. Only one of them goes directly into your database.",
+    "at_work": "If your AI integration extracts data from documents, classifies inputs, or fills fields in a system, you need structured output. Free-form responses require a human to parse them. Structured output removes the human.",
+    "one_thing": "Modern LLMs can be instructed to always return valid JSON. This is how most production AI integrations actually work. The chatbot interface is the exception, not the standard.",
+    "related": ["api", "prompt-engineering", "agent", "llm"]
+  },
+  {
+    "slug": "ai-governance",
+    "title": "AI Governance",
+    "full_title": "AI Governance",
+    "what": "The policies, processes, and oversight structures that control how AI is used in an organization.",
+    "analogy": "The speed limit is not there to slow down good drivers. It is there because without it, everyone drives however they want and some of them drive into things. AI governance is the speed limit. And the license requirement. And the insurance mandate.",
+    "at_work": "Whoever hasn't asked \"who in this company decides what AI tools employees can use and on what data\" has already answered the question: no one. That gap becomes a compliance problem, a data leak, or a PR incident at an unpredictable time.",
+    "one_thing": "Most companies will implement AI governance reactively. The ones that do it proactively will have fewer uncomfortable board conversations.",
+    "related": ["ai-safety", "guardrails", "on-premise-ai", "llm"]
+  },
+  {
+    "slug": "multiagent",
+    "title": "Multi-Agent",
+    "full_title": "Multi-Agent System",
+    "what": "Multiple AI agents working together, each handling a different part of a task and passing results between them.",
+    "analogy": "A law firm handles your case. One partner does strategy, one handles filings, one manages client communication. None of them does everything. The firm as a system produces the outcome. Multi-agent is the firm model applied to AI.",
+    "at_work": "Research pipelines, complex workflows, and anything requiring diverse expertise. One agent searches, one writes, one edits, one quality-checks. Multi-agent systems fail when handoffs between agents are poorly defined. The failure mode is usually the same as in human teams.",
+    "one_thing": "More agents does not mean better results. It means more places for errors to compound. Start with one agent doing one thing well before adding agents.",
+    "related": ["autonomous-agent", "ai-orchestration", "tool-use", "agent"]
+  },
+  {
+    "slug": "transformer",
+    "title": "Transformer",
+    "full_title": "Transformer Architecture",
+    "what": "The underlying technical design of most modern LLMs, introduced in a 2017 paper titled \"Attention Is All You Need.\"",
+    "analogy": "The transformer is the internal combustion engine of modern AI. Most AI cars run on it. You don't need to know how it works to drive. You should know the name when someone asks if your AI runs on a transformer-based model.",
+    "at_work": "You will hear this word in vendor discussions and technical presentations. Its practical implication: transformer-based models are state-of-the-art. Non-transformer approaches exist but are niche. If a vendor doesn't mention transformer architecture, ask.",
+    "one_thing": "The T in GPT stands for Transformer. This is useful context, not actionable information. You now know it.",
+    "related": ["llm", "training", "inference", "gpt"]
+  },
+  {
+    "slug": "model-benchmark",
+    "title": "Benchmark",
+    "full_title": "AI Model Benchmark",
+    "what": "A standardized test used to compare the performance of different AI models.",
+    "analogy": "A standardized test for AI. The SAT doesn't measure everything about a student. The MMLU benchmark doesn't measure everything about a model. High scores get attention. Whether those scores predict what you actually need is a separate question.",
+    "at_work": "Vendors will quote benchmark scores to justify their pricing. Ask which benchmark, on which task type, and whether that task type matches what you need. A model that scores 92 on medical reasoning may score below average on your specific customer support use case.",
+    "one_thing": "Benchmark scores measure benchmark performance. They do not measure performance on your problem. Always test on your own data before making a vendor decision.",
+    "related": ["llm", "fine-tuning", "inference"]
+  },
+  {
+    "slug": "ai-safety",
+    "title": "AI Safety",
+    "full_title": "AI Safety",
+    "what": "The field concerned with making AI systems behave as intended and avoiding harmful outcomes at scale.",
+    "analogy": "A self-driving car that always obeys traffic laws is safe in the narrow sense. A self-driving car that continues down the highway when you ask it to stop is a different kind of problem. AI safety is about the second problem, scaled up.",
+    "at_work": "AI safety is largely invisible until it isn't. For most companies it means: does this AI tool do what the vendor claims, and can we turn it off. For AI companies, it means much larger questions about powerful systems acting in unintended ways.",
+    "one_thing": "AI safety is not the same as AI security. Security is about preventing unauthorized access. Safety is about the system doing something unintended even when used correctly.",
+    "related": ["guardrails", "ai-governance", "rlhf", "llm"]
+  },
+  {
+    "slug": "context-engineering",
+    "title": "Context Engineering",
+    "full_title": "Context Engineering",
+    "what": "The practice of carefully designing what information goes into an AI's context window to get better results.",
+    "analogy": "You have a meeting with a consultant. You can give them a 200-page binder, a messy inbox, and verbal summaries, or you can give them a precise one-page briefing and three relevant documents. Same consultant. Completely different meeting quality.",
+    "at_work": "Context engineering is what makes the difference between a generic AI assistant and a useful one. It covers: what documents to include, how to structure them, what instructions to prioritize, and what to leave out. Increasingly, this is a job function, not just a technique.",
+    "one_thing": "Most bad AI outputs are bad context, not bad models. Before switching models, fix what you're putting into the prompt.",
+    "related": ["prompt-engineering", "context-window", "rag", "system-prompt"]
+  },
+  {
+    "slug": "latency",
+    "title": "Latency",
+    "full_title": "AI Latency",
+    "what": "The delay between sending a request to an AI and receiving a response.",
+    "analogy": "Waiting for a very smart answer versus a fast answer. The model that takes fifteen seconds to respond correctly and the model that responds in one second with a slightly worse answer are two different products for two different use cases.",
+    "at_work": "For customer-facing AI, latency determines whether users wait or leave. For internal batch processing, latency is irrelevant. Evaluate latency against the use case, not in isolation. A two-second response in a live chat is too slow. A two-second response in an overnight report is imperceptible.",
+    "one_thing": "Smaller models are faster. Larger models are smarter. The tradeoff between the two is the core decision in AI product design.",
+    "related": ["inference", "token", "llm", "quantization"]
+  },
+  {
+    "slug": "retrieval",
+    "title": "Retrieval",
+    "full_title": "Retrieval",
+    "what": "The process of finding relevant information from a document library before passing it to an AI model.",
+    "analogy": "You have a warehouse of 10,000 files. Retrieval is the filing clerk who goes in, pulls the three most relevant folders, and brings them to the meeting. The AI then reads those three folders and answers your question. Without the clerk, the AI would have to read everything, which is slow and expensive.",
+    "at_work": "Retrieval is the first half of RAG. It's what makes AI over large document libraries practical. The quality of retrieval determines the quality of the final answer. Bad retrieval means the AI answers from the wrong documents.",
+    "one_thing": "Most RAG failures are retrieval failures. If the right document isn't pulled, the best LLM in the world gives a wrong answer.",
+    "related": ["rag", "embedding", "vector-database", "semantic-search"]
+  },
+  {
+    "slug": "function-calling",
+    "title": "Function Calling",
+    "full_title": "Function Calling",
+    "what": "A feature that lets an LLM trigger specific external actions, like searching the web, querying a database, or sending an email.",
+    "analogy": "Giving the AI a set of labeled buttons. \"Press this to search Google. Press this to add a calendar event. Press this to send an email.\" The AI decides which button to press based on the conversation. You decide which buttons exist.",
+    "at_work": "Function calling is how LLMs connect to your internal systems without custom engineering for every action. Define the functions, expose them to the model, and the model calls the right one at the right time. This is the technical foundation of AI that takes actions in your company's software.",
+    "one_thing": "Function calling and tool use are the same concept with different names. OpenAI popularized \"function calling.\" \"Tool use\" is the broader industry term. Same thing.",
+    "related": ["tool-use", "api", "agent", "mcp"]
+  },
+  {
+    "slug": "ai-copilot",
+    "title": "AI Copilot",
+    "full_title": "AI Copilot",
+    "what": "An AI assistant built directly into a software tool that helps you work faster within that tool.",
+    "analogy": "The copilot doesn't fly the plane. The copilot monitors, suggests, fills in forms, runs checklists, and warns about turbulence. You still make the decisions. The workload decreases. The outcomes improve, mostly.",
+    "at_work": "GitHub Copilot writes code. Microsoft Copilot in Teams summarizes meetings. Notion AI drafts documents. Salesforce Einstein suggests next actions. Every major software vendor is building one. When evaluating new tools, \"does it have a copilot\" is now a standard checklist item.",
+    "one_thing": "Copilot is a marketing term, not a technical one. Different vendors mean different things by it. The actual capability varies widely. Always ask what the copilot specifically does, not just that it exists.",
+    "related": ["llm", "tool-use", "prompt", "saas-vs-api"]
   }
 ]
